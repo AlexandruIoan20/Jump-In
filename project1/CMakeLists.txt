@@ -8,4 +8,6 @@ add_executable(project1
         main.cpp
         global/global.cpp
         afis/afis.cpp
+        logica-joc/miscare-iepure/miscare-iepure.cpp
+        utils/utils.cpp
 )

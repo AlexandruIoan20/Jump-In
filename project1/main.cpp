@@ -1,6 +1,8 @@
 #include "structures/structures.h"
 #include "global/global.h"
 #include "afis/afis.h"
+#include "utils/utils.h"
+#include "logica-joc/miscare-iepure/miscare-iepure.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -85,10 +87,6 @@ bool conditie_final_joc () {
         if (iepuri[i].ingame) return false;
 
     return true;
-}
-
-bool inmat(int x, int y) {
-    return (x >= 0 && x <= N - 1 && y >= 0 && y <= N - 1);
 }
 
 void plasare_iepure(int x, int y, iepure iep) {
@@ -191,58 +189,6 @@ void initializare_matrice () {
 }
 
 // Miscare
-void verificare_iepure_in_gaura(iepure &iep) {
-    if (matrice_joc[iep.x][iep.y].este_gaura && !matrice_joc[iep.x][iep.y].este_ocupat) {
-        iep.ingame = false;
-        matrice_joc[iep.x][iep.y].este_ocupat = true;
-        matrice_joc[iep.x][iep.y].val = -1;
-
-        cout << "Felicitari, un iepure a intrat in gaura." << '\n';
-    }
-}
-
-void saritura_iepure(iepure &iep, int directie) {
-    // Daca sunt doi iepuri unul langa altul ( afara din matrice | iepure iepure )
-    // si pe cel din dreapta il mutam in stanga, va iesi de tot din matrice
-    if (iep.ingame == false) {
-        cout << "Acel iepure a fost deja introdus intr-o gaura";
-        return;
-    }
-
-    int xnou = iep.x + dx[directie], ynou = iep.y + dy[directie];
-    if (!inmat(xnou, ynou)) {
-        cerr << "Iepurele nu poate sari deoarece va iesi de pe teren." << '\n';
-        return;
-    }
-
-    if (matrice_joc[xnou][ynou].val == 0 || matrice_joc[xnou][ynou].val == VALOARE_GAURA && matrice_joc[xnou][ynou].este_ocupat == false) {
-        cerr << "Iepurele nu poate avansa deoarece nu are peste ce sari.";
-        return;
-    }
-
-    while(
-        inmat(xnou, ynou) && matrice_joc[xnou][ynou].val != 0
-        ) {
-        if (matrice_joc[xnou][ynou].val == VALOARE_GAURA && !matrice_joc[xnou][ynou].este_ocupat) break;
-        xnou = xnou + dx[directie];
-        ynou = ynou + dy[directie];
-    }
-
-    if (!inmat(xnou, ynou)) {
-        cerr << "Iepurele iese din matrice" << '\n';
-        return;
-    }
-    matrice_joc[iep.x][iep.y].val = 0;
-    iep.x = xnou;
-    iep.y = ynou;
-
-    matrice_joc[iep.x][iep.y].val = VALOARE_IEPURE;
-    verificare_iepure_in_gaura(iep);
-
-    afisare_matrice();
-    cout << '\n';
-}
-
 bool verificare_miscare_vulpe(int xnou, int ynou) {
     return inmat(xnou, ynou) && matrice_joc[xnou][ynou].val == 0;
 }
@@ -345,6 +291,7 @@ void joc() {
         cin >> directie;
         if (directie == 0) return;
         saritura_iepure(iepuri[nr_iepure - 1], directie - 1);
+        afisare_matrice();
     }
 
     if (strcmp(comanda, "mvulpe") == 0) {
