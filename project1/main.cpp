@@ -1,5 +1,6 @@
 #include "structures/structures.h"
 #include "global/global.h"
+#include "afis/afis.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -8,53 +9,6 @@
 using namespace std;
 
 vector<pair<int, int>> COORDONATE_GAURI;
-
-void afisare_iepuri(iepure iepuri[], int numar_iepuri) {
-    cout << "IEPURI: " << '\n';
-    for (int i = 0; i < numar_iepuri; i++) {
-        cout << "iepuri[" << i << "].ingame: " << iepuri[i].ingame << '\n';
-        cout << "iepuri[" << i  << "].x: " << iepuri[i].x << '\n';
-        cout << "iepuri[" << i  << "].y: " << iepuri[i].y << '\n';
-        cout << '\n';
-    }
-
-    cout << '\n';
-}
-
-void afisare_vulpi(vulpe vulpi[], int numar_vulpi) {
-    cout << "VULPI: " << '\n';
-    for (int i = 0; i < numar_vulpi; i++) {
-        cout << "vulpi[" << i  << "].orientare: " << vulpi[i].orientare << '\n';
-        cout << "vulpi[" << i  << "].x1: " << vulpi[i].x1 <<  " vulpi[" << i  << "].y1: " << vulpi[i].y1 << '\n';
-        cout << "vulpi[" << i  << "].x2: " << vulpi[i].x2 <<  " vulpi[" << i  << "].y2: " << vulpi[i].y2 << '\n';
-        cout << '\n';
-    }
-
-    cout << '\n';
-}
-
-void afisare_valori_matrice(camp matrice_joc[5][5], int N) {
-    cout << "    ";
-    for (int j = 0; j < N; j++) {
-        cout << setw(3) << j;
-    }
-    cout << '\n';
-
-    cout << "   ";
-    for (int j = 0; j < N; j++) {
-        cout << "---";
-    }
-    cout << '\n';
-
-    for (int i = 0; i < N; i++) {
-        cout << setw(2) << i << " |";
-        for (int j = 0; j < N; j++) {
-            cout << setw(3) << matrice_joc[i][j].val;
-        }
-        cout << '\n';
-    }
-}
-
 
 void citesteProvocareDinFisier(const string& numeFisier) {
     ifstream fisier(numeFisier);
@@ -285,7 +239,7 @@ void saritura_iepure(iepure &iep, int directie) {
     matrice_joc[iep.x][iep.y].val = VALOARE_IEPURE;
     verificare_iepure_in_gaura(iep);
 
-    afisare_valori_matrice(matrice_joc, N);
+    afisare_matrice();
     cout << '\n';
 }
 
@@ -347,7 +301,7 @@ void miscare_vulpe(vulpe &vulp, int directie) {
         return;
     }
 
-    afisare_valori_matrice(matrice_joc, N);
+    afisare_matrice();
     cout << '\n';
 }
 
@@ -361,8 +315,8 @@ void joc() {
     char comanda[10];
     cin >> comanda;
 
-    if (strcmp(comanda, "iepuri") == 0) afisare_iepuri(iepuri, NUMAR_IEPURI);
-    if (strcmp(comanda, "vulpi") == 0) afisare_vulpi(vulpi, NUMAR_VULPI);
+    if (strcmp(comanda, "iepuri") == 0) afisare_iepuri();
+    if (strcmp(comanda, "vulpi") == 0) afisare_vulpi();
 
     if (strcmp(comanda, "miepure") == 0) {
         cout << "Alege numarul iepurelui pe care doresti sa il muti: " << '\n';
@@ -420,9 +374,10 @@ void joc() {
 
 int main()
 {
+    afisare_matrice();
     cout << "Mapa de joc este urmatoarea: " << '\n';
     initializare_matrice();
-    afisare_valori_matrice(matrice_joc, N);
+    afisare_matrice();
     cout << '\n';
 
     cout << "Informatii utile pentru joc: " << '\n';

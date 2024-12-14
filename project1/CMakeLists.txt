@@ -7,4 +7,5 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(project1
         main.cpp
         global/global.cpp
+        afis/afis.cpp
 )

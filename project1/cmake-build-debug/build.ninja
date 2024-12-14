@@ -61,6 +61,12 @@ build CMakeFiles/project1.dir/global/global.cpp.obj: CXX_COMPILER__project1_unsc
   OBJECT_DIR = CMakeFiles\project1.dir
   OBJECT_FILE_DIR = CMakeFiles\project1.dir\global
 
+build CMakeFiles/project1.dir/afis/afis.cpp.obj: CXX_COMPILER__project1_unscanned_Debug C$:/Documents/Personal-Projects/Jump-In/project1/afis/afis.cpp || cmake_object_order_depends_target_project1
+  DEP_FILE = CMakeFiles\project1.dir\afis\afis.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\project1.dir
+  OBJECT_FILE_DIR = CMakeFiles\project1.dir\afis
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target project1
@@ -69,7 +75,7 @@ build CMakeFiles/project1.dir/global/global.cpp.obj: CXX_COMPILER__project1_unsc
 #############################################
 # Link the executable project1.exe
 
-build project1.exe: CXX_EXECUTABLE_LINKER__project1_Debug CMakeFiles/project1.dir/main.cpp.obj CMakeFiles/project1.dir/global/global.cpp.obj
+build project1.exe: CXX_EXECUTABLE_LINKER__project1_Debug CMakeFiles/project1.dir/main.cpp.obj CMakeFiles/project1.dir/global/global.cpp.obj CMakeFiles/project1.dir/afis/afis.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\project1.dir
