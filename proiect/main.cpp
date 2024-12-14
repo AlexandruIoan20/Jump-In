@@ -2,63 +2,14 @@
 #include <vector>
 #include <fstream>
 #include <iomanip>
-#include <string.h>
+#include <cstring>
 #include "structures/structures.h"
+#include "globals/globals.h"
 using namespace std;
-
-// Constante
-const int dx[] = { -1, 0, 1, 0 };
-const int dy[] = { 0, 1, 0, -1 };
-// SUS = 0
-// DREAPTA = 1
-// JOS = 2
-// STANGA 3
 
 vector<pair<int, int>> COORDONATE_GAURI;
 
-const int VALOARE_GAURA = -1;
-const int VALOARE_IEPURE = 1;
-const int VALOARE_VULPE = 2;
-const int VALOARE_CIUPERCA = 3;
-
-int NUMAR_IEPURI = 3;
-const int NUMAR_VULPI = 2;
-const int NUMAR_CIUPERCI = 2;
-
-const int N = 5;
-
 // Variabile globale
-iepure iepuri[5];
-vulpe vulpi[NUMAR_VULPI];
-ciuperca ciuperci[NUMAR_CIUPERCI];
-
-camp matrice_joc[N][N];
-
-// Functii de test
-
-void afisare_iepuri() {
-    cout << "IEPURI: " << '\n';
-    for (int i = 0; i < NUMAR_IEPURI; i++) {
-        cout << "iepuri[" << i << "].ingame: " << iepuri[i].ingame << '\n';
-        cout << "iepuri[" << i  << "].x: " << iepuri[i].x << '\n';
-        cout << "iepuri[" << i  << "].y: " << iepuri[i].y << '\n';
-        cout << '\n';
-    }
-
-    cout << '\n';
-}
-
-void afisare_vulpi() {
-    cout << "VULPI: " << '\n';
-    for (int i = 0; i < NUMAR_VULPI; i++) {
-        cout << "vulpi[" << i  << "].orientare: " << vulpi[i].orientare << '\n';
-        cout << "vulpi[" << i  << "].x1: " << vulpi[i].x1 <<  " vulpi[" << i  << "].y1: " << vulpi[i].y1 << '\n';
-        cout << "vulpi[" << i  << "].x2: " << vulpi[i].x2 <<  " vulpi[" << i  << "].y2: " << vulpi[i].y2 << '\n';
-        cout << '\n';
-    }
-
-    cout << '\n';
-}
 
 void citesteProvocareDinFisier(const string& numeFisier) {
     ifstream fisier(numeFisier);
