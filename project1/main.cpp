@@ -159,7 +159,7 @@ void hardcoding_exemplu_youtube_obiecte () {
     vulpi[1].y2 = 4;
 }
 
-void initializare_matrice () {
+/*void initializare_matrice () {
     for(int i = 0; i < N; i++)
         for(int j = 0; j < N; j++) {
             matrice_joc[i][j].este_gaura = false;
@@ -186,7 +186,7 @@ void initializare_matrice () {
     for (int i = 0; i < NUMAR_IEPURI; i++) iepuri[i].ingame = 1;
 
     hardcoding_exemplu_youtube_obiecte();
-}
+}*/
 
 void joc() {
     cout << "Comenzi: " << '\n';
@@ -261,7 +261,7 @@ int main()
 {
     afisare_matrice();
     cout << "Mapa de joc este urmatoarea: " << '\n';
-    initializare_matrice();
+    initializare_matrice(1);
     afisare_matrice();
     cout << '\n';
 

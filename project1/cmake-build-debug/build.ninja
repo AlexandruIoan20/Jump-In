@@ -73,6 +73,12 @@ build CMakeFiles/project1.dir/logica-joc/miscare-iepure/miscare-iepure.cpp.obj: 
   OBJECT_DIR = CMakeFiles\project1.dir
   OBJECT_FILE_DIR = CMakeFiles\project1.dir\logica-joc\miscare-iepure
 
+build CMakeFiles/project1.dir/logica-joc/miscare-vulpe/miscare-vulpe.cpp.obj: CXX_COMPILER__project1_unscanned_Debug C$:/Documents/Personal-Projects/Jump-In/project1/logica-joc/miscare-vulpe/miscare-vulpe.cpp || cmake_object_order_depends_target_project1
+  DEP_FILE = CMakeFiles\project1.dir\logica-joc\miscare-vulpe\miscare-vulpe.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\project1.dir
+  OBJECT_FILE_DIR = CMakeFiles\project1.dir\logica-joc\miscare-vulpe
+
 build CMakeFiles/project1.dir/utils/utils.cpp.obj: CXX_COMPILER__project1_unscanned_Debug C$:/Documents/Personal-Projects/Jump-In/project1/utils/utils.cpp || cmake_object_order_depends_target_project1
   DEP_FILE = CMakeFiles\project1.dir\utils\utils.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
@@ -87,7 +93,7 @@ build CMakeFiles/project1.dir/utils/utils.cpp.obj: CXX_COMPILER__project1_unscan
 #############################################
 # Link the executable project1.exe
 
-build project1.exe: CXX_EXECUTABLE_LINKER__project1_Debug CMakeFiles/project1.dir/main.cpp.obj CMakeFiles/project1.dir/global/global.cpp.obj CMakeFiles/project1.dir/afis/afis.cpp.obj CMakeFiles/project1.dir/logica-joc/miscare-iepure/miscare-iepure.cpp.obj CMakeFiles/project1.dir/utils/utils.cpp.obj
+build project1.exe: CXX_EXECUTABLE_LINKER__project1_Debug CMakeFiles/project1.dir/main.cpp.obj CMakeFiles/project1.dir/global/global.cpp.obj CMakeFiles/project1.dir/afis/afis.cpp.obj CMakeFiles/project1.dir/logica-joc/miscare-iepure/miscare-iepure.cpp.obj CMakeFiles/project1.dir/logica-joc/miscare-vulpe/miscare-vulpe.cpp.obj CMakeFiles/project1.dir/utils/utils.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\project1.dir

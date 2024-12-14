@@ -9,5 +9,6 @@ add_executable(project1
         global/global.cpp
         afis/afis.cpp
         logica-joc/miscare-iepure/miscare-iepure.cpp
+        logica-joc/miscare-vulpe/miscare-vulpe.cpp
         utils/utils.cpp
 )

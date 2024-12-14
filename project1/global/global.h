@@ -27,4 +27,6 @@ extern ciuperca ciuperci[11];
 
 extern camp matrice_joc[5][5];
 
+void initializare_matrice(int numar_nivel);
+
 #endif //GLOBAL_H
