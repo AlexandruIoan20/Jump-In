@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iomanip>
 #include <string.h>
+#include "structures/structures.h"
 using namespace std;
 
 // Constante
@@ -25,27 +26,6 @@ const int NUMAR_VULPI = 2;
 const int NUMAR_CIUPERCI = 2;
 
 const int N = 5;
-
-// Structuri
-struct camp {
-    bool este_gaura;
-    bool este_ocupat;
-    int val;
-};
-
-struct vulpe {
-    char orientare; // V - vertical,  O - Orizontal
-    int x1, y1, x2, y2; // valori constante stabilite mai sus
-};
-
-struct ciuperca {
-    int x, y;
-};
-
-struct iepure {
-    bool ingame;
-    int x, y;
-};
 
 // Variabile globale
 iepure iepuri[5];
