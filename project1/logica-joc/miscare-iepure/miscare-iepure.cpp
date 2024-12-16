@@ -17,7 +17,7 @@ void verificare_iepure_in_gaura(iepure &iep) {
     }
 }
 
-void saritura_iepure(iepure &iep, int directie) {
+void saritura_iepure(iepure &iep, int directie, int index) {
     // Daca sunt doi iepuri unul langa altul ( afara din matrice | iepure iepure )
     // si pe cel din dreapta il mutam in stanga, va iesi de tot din matrice
     if (iep.ingame == false) {
@@ -50,7 +50,7 @@ void saritura_iepure(iepure &iep, int directie) {
     }
 
     matrice_joc[iep.x][iep.y].val = 0;
-    inregistrare_miscare_iepure(iep, iep.x, iep.y);
+    inregistrare_miscare_iepure(iep, iep.x, iep.y, index);
 
     iep.x = xnou;
     iep.y = ynou;

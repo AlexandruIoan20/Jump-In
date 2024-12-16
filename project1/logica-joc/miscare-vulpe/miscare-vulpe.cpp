@@ -50,7 +50,7 @@ void miscare_valoare_pozitiva (vulpe &vulp, int directie) {
     vulp.y2 = ynou;
 }
 
-void miscare_vulpe(vulpe &vulp, int directie) {
+void miscare_vulpe(vulpe &vulp, int directie, int index) {
     if ((vulp.orientare == 'O' && (directie == 0 || directie == 2)) ||
         (vulp.orientare == 'V' && (directie == 1 || directie == 3))) {
         cout << "Miscarea vulpii pe acea directie nu este posibila" << '\n';
@@ -59,7 +59,6 @@ void miscare_vulpe(vulpe &vulp, int directie) {
 
     int x1 = vulp.x1, x2 = vulp.x2, y1 = vulp.y1, y2 = vulp.y2;
 
-    // Miscarea vulpii pe orizontala
     if (directie < 0 || directie > 3) {
         cout << "Directia introdusa nu este valida" << '\n';
         return;
@@ -68,6 +67,6 @@ void miscare_vulpe(vulpe &vulp, int directie) {
     if (directie == 0 || directie == 3) miscare_valoare_negativa(vulp, directie);
     else if (directie == 1 || directie == 2) miscare_valoare_pozitiva(vulp, directie);
 
-    inregistrare_miscare_vulpe(vulp, x1, x2, y1, y2);
+    inregistrare_miscare_vulpe(vulp, x1, x2, y1, y2, index);
     cout << '\n';
 }

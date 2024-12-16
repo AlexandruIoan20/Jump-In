@@ -53,3 +53,25 @@ void afisare_matrice() {
         cout << '\n';
     }
 }
+
+void afisare_miscare(miscare m) {
+    cout << "obiect: " << m.obiect << '\n';
+    cout << "index_iepure: " << m.index_iepure << '\n';
+    cout << "index_vulpe: " << m.index_vulpe << '\n';
+    cout << "coordonate_vechi: (" << m.coordonate_vechi.x << ", " << m.coordonate_vechi.y << ")\n";
+    cout << "coordonate_vechi2: (" << m.coordonate_vechi2.x << ", " << m.coordonate_vechi2.y << ")\n";
+    cout << "coordonate_noi: (" << m.coordonate_noi.x << ", " << m.coordonate_noi.y << ")\n";
+    cout << "coordonate_noi2: (" << m.coordonate_noi2.x << ", " << m.coordonate_noi2.y << ")\n";
+    cout << '\n';
+}
+
+void afisare_miscari() {
+    if (numar_miscari == 0) {
+        cout << "Momentan nu au fost facute miscari." << '\n';
+        return;
+    }
+
+    cout << "Miscarile executate pana acum sunt: " << '\n';
+
+    for (int i = 0; i < numar_miscari; i++) afisare_miscare(miscari[i]);
+}

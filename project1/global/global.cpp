@@ -11,6 +11,7 @@ const int VALOARE_GAURA = -1;
 const int VALOARE_IEPURE = 1;
 const int VALOARE_VULPE = 2;
 const int VALOARE_CIUPERCA = 3;
+const int VALOARE_CAMP_GOL = 0;
 
 const int NUMAR_NIVELE=12;
 int NUMAR_IEPURI = 0;

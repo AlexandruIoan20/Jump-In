@@ -11,4 +11,5 @@ add_executable(project1
         logica-joc/miscare-iepure/miscare-iepure.cpp
         logica-joc/miscare-vulpe/miscare-vulpe.cpp
         utils/utils.cpp
+        miscari/miscari.cpp
 )

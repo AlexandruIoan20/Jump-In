@@ -4,132 +4,15 @@
 #include "logica-joc/miscare-vulpe/miscare-vulpe.h"
 #include "logica-joc/miscare-iepure/miscare-iepure.h"
 #include <iostream>
-#include <vector>
 #include <fstream>
-#include <iomanip>
 #include <cstring>
 using namespace std;
-
-vector<pair<int, int>> COORDONATE_GAURI;
-
-void citesteProvocareDinFisier(const string& numeFisier) {
-    ifstream fisier(numeFisier);
-    if (!fisier.is_open()) {
-        cout << "Eroare! Nu am putut deschide fisierul: " << numeFisier << endl;
-        return;
-    }
-
-    /// Citirea valorilor pentru matricea de joc
-    int liepuri = 0;
-    int lvulpi = 0;
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            fisier >> matrice_joc[i][j].val;
-
-            /// Setăm valorile implicite pentru câmpurile `este_gaura` și `este_ocupat`
-            if (matrice_joc[i][j].val == -1) {
-                matrice_joc[i][j].este_gaura = true;
-                matrice_joc[i][j].este_ocupat = false;
-            }
-
-            if (matrice_joc[i][j].val == VALOARE_IEPURE) {
-                iepuri[liepuri].x = i;
-                iepuri[liepuri].y = j;
-
-                liepuri++;
-            } else if (matrice_joc[i][j].val == VALOARE_VULPE) {
-                // todo
-            }
-        }
-    }
-    fisier.close();
-}
-
-/// Funcție pentru a începe jocul
-void incepere_joc() {
-    int nrProvocare;
-    cout << "Selecteaza una dintre provocari:" << endl;
-    cout << "1) Provocare 1" << endl;
-    cout << "2) Provocare 2" << endl;
-    cout << "3) Provocare 3" << endl;
-    cin >> nrProvocare;
-
-    string numeFisier;
-    switch (nrProvocare) {
-        case 1:
-            cout << "Ai selectat Provocare 1." << endl;
-        numeFisier = "Provocare1.txt";
-        citesteProvocareDinFisier(numeFisier);
-        break;
-        case 2:
-            cout << "Ai selectat Provocare 2." << endl;
-        numeFisier = "Provocare2.txt";
-        citesteProvocareDinFisier(numeFisier);
-        break;
-        case 3:
-            cout << "Ai selectat Provocare 3." << endl;
-        numeFisier = "Provocare3.txt";
-        citesteProvocareDinFisier(numeFisier);
-        break;
-        default:
-            cout << "Optiune invalida. Te rog selecteaza un numar intre 1 si 3." << endl;
-    }
-}
-
-void asezare_piese () {
-    // to do
-    // pe baza unui anumit input obiectul trebuie asezat in matrice ( in functie de coordonate ).
-        // trebuie actualizate si coordonatele din matrice si coordonatele din structura
-}
 
 bool conditie_final_joc () {
     for (int i = 0; i < NUMAR_IEPURI; i++)
         if (iepuri[i].ingame) return false;
 
     return true;
-}
-
-void plasare_iepure(int x, int y, iepure iep) {
-    if(matrice_joc[x][y].val != VALOARE_IEPURE){
-        cerr << "Eroare la adaugarea unui iepure. Acest loc este deja ocupat";
-        return;
-    }
-
-    iep.x = x;
-    iep.y = y;
-    matrice_joc[x][y].val = VALOARE_IEPURE;
-}
-
-void plasare_vulpe (int x, int y, char orientare, vulpe vulp) {
-    int x1,y1;
-    x1=x, y1=y;
-    if(orientare=='O')
-        y1++;
-    if(orientare=='V')
-        x1++;
-    if(matrice_joc[x][y].este_ocupat && matrice_joc[x1][y1].este_ocupat){
-        cerr << "Eroare la adaugarea unei vulpi. Acest loc este deja ocupat.";
-        return;
-    }
-    vulp.x1=x;
-    vulp.y1=y;
-    vulp.x2=x1;
-    vulp.y2=y1;
-    matrice_joc[x][y].este_ocupat = true;
-    matrice_joc[x][y].val = VALOARE_VULPE;
-    matrice_joc[x1][y1].este_ocupat = true;
-    matrice_joc[x1][y1].val = VALOARE_VULPE;
-}
-
-void plasare_ciuperca(int x, int y, ciuperca ciup) {
-    if (matrice_joc[x][y].este_ocupat) {
-        cerr << "Eroare la adaugarea unei ciuperci. Acest loc este deja ocupat.";
-        return;
-    }
-    ciup.x=x;
-    ciup.y=y;
-    matrice_joc[x][y].este_ocupat = true;
-    matrice_joc[x][y].val = VALOARE_CIUPERCA;
 }
 
 void joc() {
@@ -144,6 +27,7 @@ void joc() {
 
     if (strcmp(comanda, "iepuri") == 0) afisare_iepuri();
     if (strcmp(comanda, "vulpi") == 0) afisare_vulpi();
+    if (strcmp(comanda, "miscari") == 0) afisare_miscari(); 
 
     if (strcmp(comanda, "miepure") == 0) {
         cout << "Alege numarul iepurelui pe care doresti sa il muti: " << '\n';
@@ -171,7 +55,7 @@ void joc() {
         int directie;
         cin >> directie;
         if (directie == 0) return;
-        saritura_iepure(iepuri[nr_iepure - 1], directie - 1);
+        saritura_iepure(iepuri[nr_iepure - 1], directie - 1, nr_iepure - 1);
         afisare_matrice();
     }
 
@@ -192,7 +76,7 @@ void joc() {
         int directie;
         cin >> directie;
         if (directie == 0) return;
-        miscare_vulpe(vulpi[nr_vulpe -1], directie - 1);
+        miscare_vulpe(vulpi[nr_vulpe -1], directie - 1, nr_vulpe - 1);
         afisare_matrice();
     }
 

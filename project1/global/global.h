@@ -14,6 +14,7 @@ extern const int VALOARE_GAURA;
 extern const int VALOARE_IEPURE;
 extern const int VALOARE_VULPE;
 extern const int VALOARE_CIUPERCA;
+extern const int VALOARE_CAMP_GOL;
 
 extern const int NUMAR_NIVELE;
 extern int NUMAR_IEPURI;
