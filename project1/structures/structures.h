@@ -25,4 +25,18 @@ struct iepure {
     int x, y;
 };
 
+struct coordonate {
+    int x, y;
+};
+
+struct miscare {
+    char obiect;
+    int index_iepure;
+    int index_vulpe;
+    coordonate coordonate_vechi;
+    coordonate coordonate_vechi2;
+    coordonate coordonate_noi;
+    coordonate coordonate_noi2;
+};
+
 #endif //STRUCTURES_H

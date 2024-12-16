@@ -3,6 +3,7 @@
 #include "../../global/global.h"
 #include "../../structures/structures.h"
 #include "../../utils/utils.h"
+#include "../../miscari/miscari.h"
 #include <iostream>
 using namespace std;
 
@@ -47,7 +48,10 @@ void saritura_iepure(iepure &iep, int directie) {
         cerr << "Iepurele iese din matrice" << '\n';
         return;
     }
+
     matrice_joc[iep.x][iep.y].val = 0;
+    inregistrare_miscare_iepure(iep, iep.x, iep.y);
+
     iep.x = xnou;
     iep.y = ynou;
 

@@ -4,6 +4,7 @@
 #include "../../structures/structures.h"
 #include "../../global/global.h"
 #include "../../utils/utils.h"
+#include "../../miscari/miscari.h"
 using namespace std;
 
 bool verificare_miscare_vulpe(int xnou, int ynou) {
@@ -56,13 +57,17 @@ void miscare_vulpe(vulpe &vulp, int directie) {
         return;
         }
 
+    int x1 = vulp.x1, x2 = vulp.x2, y1 = vulp.y1, y2 = vulp.y2;
+
     // Miscarea vulpii pe orizontala
-    if (directie == 0 || directie == 3) miscare_valoare_negativa(vulp, directie);
-    else if (directie == 1 || directie == 2) miscare_valoare_pozitiva(vulp, directie);
-    else {
+    if (directie < 0 || directie > 3) {
         cout << "Directia introdusa nu este valida" << '\n';
         return;
     }
 
+    if (directie == 0 || directie == 3) miscare_valoare_negativa(vulp, directie);
+    else if (directie == 1 || directie == 2) miscare_valoare_pozitiva(vulp, directie);
+
+    inregistrare_miscare_vulpe(vulp, x1, x2, y1, y2);
     cout << '\n';
 }

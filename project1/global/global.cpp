@@ -1,7 +1,5 @@
 #include "global.h"
-#include "../utils/utils.h"
 #include <iostream>
-#include <cstring>
 #include <fstream>
 #include <queue>
 using namespace std;
@@ -26,6 +24,9 @@ vulpe vulpi[11];
 ciuperca ciuperci[11];
 
 camp matrice_joc[5][5];
+miscare miscari[101];
+
+int numar_miscari = 0;
 
 void initializare_matrice(int numar_nivel) {
     string nume_fisier = "../nivele/nivel" + to_string(numar_nivel) + ".txt";
