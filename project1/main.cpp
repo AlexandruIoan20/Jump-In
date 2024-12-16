@@ -132,62 +132,6 @@ void plasare_ciuperca(int x, int y, ciuperca ciup) {
     matrice_joc[x][y].val = VALOARE_CIUPERCA;
 }
 
-void hardcoding_exemplu_youtube_obiecte () {
-    // Hardcoding pentru testare de joc
-    matrice_joc[0][3].val = matrice_joc[2][4].val = matrice_joc[4][1].val = VALOARE_IEPURE;
-    iepuri[0].x = 0;
-    iepuri[0].y = 3;
-    iepuri[1].x = 2;
-    iepuri[1].y = 4;
-    iepuri[2].x = 4;
-    iepuri[2].y = 1;
-
-    matrice_joc[1][3].val = matrice_joc[4][2].val = VALOARE_CIUPERCA;
-
-    matrice_joc[0][1].val = matrice_joc[1][1].val = VALOARE_VULPE;
-    vulpi[0].orientare = 'V';
-    vulpi[0].x1 = 0;
-    vulpi[0].y1 = 1;
-    vulpi[0].x2 = 1;
-    vulpi[0].y2 = 1;
-
-    matrice_joc[3][3].val = matrice_joc[3][4].val = VALOARE_VULPE;
-    vulpi[1].orientare = 'O';
-    vulpi[1].x1 = 3;
-    vulpi[1].y1 = 3;
-    vulpi[1].x2 = 3;
-    vulpi[1].y2 = 4;
-}
-
-/*void initializare_matrice () {
-    for(int i = 0; i < N; i++)
-        for(int j = 0; j < N; j++) {
-            matrice_joc[i][j].este_gaura = false;
-            matrice_joc[i][j].este_ocupat = false;
-        }
-
-    // Setam coordonatele la care sunt gauri
-    COORDONATE_GAURI.push_back({ 0, 0});
-    COORDONATE_GAURI.push_back({ 0, N - 1 });
-    COORDONATE_GAURI.push_back({ N - 1, 0 });
-    COORDONATE_GAURI.push_back({ N - 1, N - 1 });
-
-    // Initializam valorile din matrice cu VALOARE_GAURA acolo unde sunt gauri iar proprietatea este_gaura devine adevarata
-    for (int i = 0; i < COORDONATE_GAURI.size(); i++) {
-        matrice_joc[COORDONATE_GAURI[i].first][COORDONATE_GAURI[i].second].este_gaura = true;
-        matrice_joc[COORDONATE_GAURI[i].first][COORDONATE_GAURI[i].second].val = VALOARE_GAURA;
-    }
-    if(N % 2 == 1) {
-        matrice_joc[(N - 1) / 2][(N - 1) / 2].este_gaura = true;
-        matrice_joc[(N - 1) / 2][(N - 1) / 2].val = -1;
-    }
-
-    // Iepurii sunt in joc
-    for (int i = 0; i < NUMAR_IEPURI; i++) iepuri[i].ingame = 1;
-
-    hardcoding_exemplu_youtube_obiecte();
-}*/
-
 void joc() {
     cout << "Comenzi: " << '\n';
     cout << "Tastati 'iepuri' pentru a afisa coorodonatele iepurilor: " << '\n';
@@ -259,12 +203,16 @@ void joc() {
 
 int main()
 {
-    cout << "Selecteaza nivelul dorit: " << '\n';
+    cout << "Selecteaza nivelul dorit (1 - 15): " << '\n';
     int nivel;
     cin >> nivel;
+
+    while (nivel < 1 || nivel > NUMAR_NIVELE) {
+        cout << "Introdu un nivel valid: " << '\n';
+        cin >> nivel;
+    }
     cout << "Mapa de joc este urmatoarea: " << '\n';
     initializare_matrice(nivel);
-    hardcoding_exemplu_youtube_obiecte();
     afisare_matrice();
     cout << '\n';
 

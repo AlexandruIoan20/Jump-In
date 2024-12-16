@@ -14,6 +14,7 @@ const int VALOARE_IEPURE = 1;
 const int VALOARE_VULPE = 2;
 const int VALOARE_CIUPERCA = 3;
 
+const int NUMAR_NIVELE=12;
 int NUMAR_IEPURI = 0;
 int NUMAR_VULPI = 0;
 int NUMAR_CIUPERCI = 0;
@@ -52,26 +53,6 @@ void initializare_matrice(int numar_nivel) {
             NUMAR_IEPURI++;
           }
 
-          if(valoare == VALOARE_VULPE) {
-                bool este_x2 = false;
-                for(int k = 1; k < 4 && !este_x2; k += 2) {
-                    int xnou = i + dx[k];
-                    int ynou = j + dy[k];
-                    if(inmat(xnou, ynou) && matrice_joc[xnou][ynou].val == VALOARE_VULPE) este_x2 = true;
-                }
-
-                if(!este_x2) {
-                    q.push(NUMAR_VULPI);
-                    vulpi[NUMAR_VULPI].x1 = i;
-                    vulpi[NUMAR_VULPI].y1 = j;
-                    NUMAR_VULPI++;
-                } else {
-                    vulpi[q.front()].x2 = i;
-                    vulpi[q.front()].y2 = j;
-                    q.pop();
-                }
-          }
-
           if(valoare == VALOARE_CIUPERCA) {
                 ciuperci[NUMAR_CIUPERCI].x = i;
                 ciuperci[NUMAR_CIUPERCI].y = j;
@@ -79,9 +60,32 @@ void initializare_matrice(int numar_nivel) {
           }
     }
 
-    NUMAR_IEPURI--;
-    NUMAR_VULPI--;
-    NUMAR_CIUPERCI--;
+    for (int i = 0; i < N; i++)
+        for (int j = 0; j < N; j++) {
+            if(matrice_joc[i][j].val == VALOARE_VULPE) {
+                int x1 = i + dx[1];
+                int y1 = j + dy[1];
+
+                int x2 = i + dx[2];
+                int y2 = j + dy[2];
+
+                if (matrice_joc[x1][y1].val == VALOARE_VULPE || matrice_joc[x2][y2].val == VALOARE_VULPE) {
+                    vulpi[NUMAR_VULPI].x1 = i;
+                    vulpi[NUMAR_VULPI].y1 = j;
+                    if (matrice_joc[x1][y1].val == VALOARE_VULPE) {
+                        vulpi[NUMAR_VULPI].x2 = x1;
+                        vulpi[NUMAR_VULPI].y2 = y1;
+                        vulpi[NUMAR_VULPI].orientare = 'O';
+                    } else if (matrice_joc[x2][y2].val == VALOARE_VULPE) {
+                        vulpi[NUMAR_VULPI].x2 = x2;
+                        vulpi[NUMAR_VULPI].y2 = y2;
+                        vulpi[NUMAR_VULPI].orientare = 'V';
+                    }
+
+                    NUMAR_VULPI++;
+                }
+            }
+        }
 
     fin.close();
 }

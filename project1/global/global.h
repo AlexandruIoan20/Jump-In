@@ -15,6 +15,7 @@ extern const int VALOARE_IEPURE;
 extern const int VALOARE_VULPE;
 extern const int VALOARE_CIUPERCA;
 
+extern const int NUMAR_NIVELE;
 extern int NUMAR_IEPURI;
 extern int NUMAR_VULPI;
 extern int NUMAR_CIUPERCI;
