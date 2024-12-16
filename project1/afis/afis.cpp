@@ -7,6 +7,7 @@
 using namespace std;
 
 void afisare_iepuri() {
+    cout << "Numar iepuri: " << NUMAR_IEPURI << '\n';
     cout << "IEPURI: " << '\n';
     for (int i = 0; i < NUMAR_IEPURI; i++) {
         cout << "iepuri[" << i << "].ingame: " << iepuri[i].ingame << '\n';
@@ -19,6 +20,7 @@ void afisare_iepuri() {
 }
 
 void afisare_vulpi() {
+    cout << "Numar vulpi: " << NUMAR_VULPI << '\n';
     cout << "VULPI: " << '\n';
     for (int i = 0; i < NUMAR_VULPI; i++) {
         cout << "vulpi[" << i  << "].orientare: " << vulpi[i].orientare << '\n';

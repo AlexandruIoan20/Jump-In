@@ -259,9 +259,12 @@ void joc() {
 
 int main()
 {
-    afisare_matrice();
+    cout << "Selecteaza nivelul dorit: " << '\n';
+    int nivel;
+    cin >> nivel;
     cout << "Mapa de joc este urmatoarea: " << '\n';
-    initializare_matrice(1);
+    initializare_matrice(nivel);
+    hardcoding_exemplu_youtube_obiecte();
     afisare_matrice();
     cout << '\n';
 

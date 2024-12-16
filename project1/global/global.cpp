@@ -79,5 +79,9 @@ void initializare_matrice(int numar_nivel) {
           }
     }
 
+    NUMAR_IEPURI--;
+    NUMAR_VULPI--;
+    NUMAR_CIUPERCI--;
+
     fin.close();
 }
