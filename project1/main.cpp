@@ -3,6 +3,7 @@
 #include "afis/afis.h"
 #include "logica-joc/miscare-vulpe/miscare-vulpe.h"
 #include "logica-joc/miscare-iepure/miscare-iepure.h"
+#include "miscari/miscari.h"
 #include <iostream>
 #include <fstream>
 #include <cstring>
@@ -27,7 +28,13 @@ void joc() {
 
     if (strcmp(comanda, "iepuri") == 0) afisare_iepuri();
     if (strcmp(comanda, "vulpi") == 0) afisare_vulpi();
-    if (strcmp(comanda, "miscari") == 0) afisare_miscari(); 
+    if (strcmp(comanda, "miscari") == 0) afisare_miscari();
+    if (strcmp(comanda, "undo") == 0) {
+        undo();
+        afisare_matrice();
+        cout << '\n';
+        afisare_miscari();
+    }
 
     if (strcmp(comanda, "miepure") == 0) {
         cout << "Alege numarul iepurelui pe care doresti sa il muti: " << '\n';
@@ -76,7 +83,7 @@ void joc() {
         int directie;
         cin >> directie;
         if (directie == 0) return;
-        miscare_vulpe(vulpi[nr_vulpe -1], directie - 1, nr_vulpe - 1);
+        miscare_vulpe(vulpi[nr_vulpe - 1], directie - 1, nr_vulpe - 1);
         afisare_matrice();
     }
 

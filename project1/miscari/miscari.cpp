@@ -3,6 +3,7 @@
 
 #include "../structures/structures.h"
 #include "../global/global.h"
+#include "../afis/afis.h"
 using namespace std;
 
 void inregistrare_miscare_iepure (iepure iep, int x_vechi, int y_vechi, int index) {
@@ -51,6 +52,8 @@ void undo() {
     miscare miscare_curenta = miscari[numar_miscari - 1];
     numar_miscari--;
 
+    if(miscare_curenta.index_iepure == 0 && miscare_curenta.index_vulpe == 0) return;
+
     // Daca ultima miscare a fost cu un iepure
     if(miscare_curenta.index_iepure != -1) {
          iepure iepure_curent = iepuri[miscare_curenta.index_iepure];
@@ -64,6 +67,9 @@ void undo() {
          // Iepurele se duce inapoi la coordonatele vechi
          iepure_curent.x = miscare_curenta.coordonate_vechi.x;
          iepure_curent.y = miscare_curenta.coordonate_vechi.y;
+
+        // Actualizare in matrice a valorii pe coordonatele vechi a iepurelui
+        matrice_joc[iepure_curent.x][iepure_curent.y].val = VALOARE_IEPURE;
 
          iepuri[miscare_curenta.index_iepure] = iepure_curent;
     }

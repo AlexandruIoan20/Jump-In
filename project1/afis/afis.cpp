@@ -66,7 +66,7 @@ void afisare_miscare(miscare m) {
 }
 
 void afisare_miscari() {
-    if (numar_miscari == 0) {
+    if (numar_miscari == -1) {
         cout << "Momentan nu au fost facute miscari." << '\n';
         return;
     }
