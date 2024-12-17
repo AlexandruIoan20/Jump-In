@@ -39,4 +39,14 @@ struct miscare {
     coordonate coordonate_noi2;
 };
 
+struct scor_nivel {
+    int numar_nivel;
+    int secunde;
+};
+
+struct utilizator {
+    char nume[51];
+    scor_nivel scoruri[12];
+};
+
 #endif //STRUCTURES_H

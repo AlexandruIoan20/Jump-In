@@ -1,7 +1,6 @@
 #include "global.h"
 #include <iostream>
 #include <fstream>
-#include <queue>
 using namespace std;
 
 const int dx[4] = { -1, 0, 1, 0 };
@@ -34,7 +33,6 @@ void initializare_matrice(int numar_nivel) {
     ifstream fin(nume_fisier);
 
     cout << "nume fisier:" << nume_fisier << '\n';
-    queue <int> q;
 
     int valoare;
     for(int i = 0; i < N; i++)

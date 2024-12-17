@@ -1,0 +1,3 @@
+C:/Documents/Personal-Projects/Jump-In/project1/out/build/x64-Debug/CMakeFiles/project1.dir
+C:/Documents/Personal-Projects/Jump-In/project1/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Documents/Personal-Projects/Jump-In/project1/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir

@@ -1,9 +1,9 @@
-#include <cstdlib>
 #include "structures/structures.h"
 #include "global/global.h"
 #include "afis/afis.h"
 #include "logica-joc/miscare-vulpe/miscare-vulpe.h"
 #include "logica-joc/miscare-iepure/miscare-iepure.h"
+#include "utilizatori/utilizatori.h"
 #include "miscari/miscari.h"
 #include <iostream>
 #include <fstream>
@@ -93,8 +93,27 @@ void joc() {
     }
 }
 
-int main()
-{
+void add_user(char username[101]) {
+    ofstream fout("../utilizatori/utilizatori.txt", ios::app);
+    if(!fout.is_open()) {
+        cerr << "Eroare la deschiderea fisierului cu utilizatori" << '\n';
+        return ;
+    }
+
+    fout << username << '\n';
+
+    for(int i = 0; i < NUMAR_NIVELE; i++)
+        fout << "nivel: " << i << " timp: 00: 00: 00" << '\n';
+
+    fout << '\n';
+    fout.close();
+}
+
+int main() {
+    char username[101];
+    cin.get(username, 101);
+    add_user(username);
+    // Utilizator
     cout << "Selecteaza nivelul dorit (1 - 15): " << '\n';
     int nivel;
     cin >> nivel;

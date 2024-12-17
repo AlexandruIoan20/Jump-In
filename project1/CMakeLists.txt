@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.29.5)
 project(project1)
 
 # Setează standardul de compilare
@@ -14,6 +14,7 @@ add_executable(project1
         logica-joc/miscare-vulpe/miscare-vulpe.cpp
         utils/utils.cpp
         miscari/miscari.cpp
+        utilizatori/utilizatori.cpp
 )
 
 #[[

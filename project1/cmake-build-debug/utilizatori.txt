@@ -1,0 +1,13 @@
+Morarunivel: 0 timp: 00: 00: 00
+nivel: 1 timp: 00: 00: 00
+nivel: 2 timp: 00: 00: 00
+nivel: 3 timp: 00: 00: 00
+nivel: 4 timp: 00: 00: 00
+nivel: 5 timp: 00: 00: 00
+nivel: 6 timp: 00: 00: 00
+nivel: 7 timp: 00: 00: 00
+nivel: 8 timp: 00: 00: 00
+nivel: 9 timp: 00: 00: 00
+nivel: 10 timp: 00: 00: 00
+nivel: 11 timp: 00: 00: 00
+

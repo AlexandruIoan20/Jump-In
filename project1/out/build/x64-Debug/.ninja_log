@@ -1,0 +1,7 @@
+# ninja log v6
+52	1024	7561396676627041	CMakeFiles/project1.dir/utils/utils.cpp.obj	6b8c8c8237282ca
+45	1031	7561396676566463	CMakeFiles/project1.dir/logica-joc/miscare-vulpe/miscare-vulpe.cpp.obj	ccba83d5281ea07b
+37	1036	7561396676481047	CMakeFiles/project1.dir/logica-joc/miscare-iepure/miscare-iepure.cpp.obj	6911f353c7c8aff1
+61	1040	7561396676689011	CMakeFiles/project1.dir/miscari/miscari.cpp.obj	d05cd6d654f70898
+10	614	7561405530960225	CMakeFiles/project1.dir/main.cpp.obj	56195ba5aa2ee5e7
+31	1170	7561396676416518	CMakeFiles/project1.dir/afis/afis.cpp.obj	1526332b9196d382
