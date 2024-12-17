@@ -110,9 +110,14 @@ void add_user(char username[101]) {
 }
 
 int main() {
-    char username[101];
+    /*char username[101];
     cin.get(username, 101);
-    add_user(username);
+    add_user(username);*/
+
+    get_utilizatori();
+    for (int i = 0; i < numar_utilizatori; i++) {
+        cout << "Nume utilizator: " << utilizatori[i].nume << '\n';
+    }
     // Utilizator
     cout << "Selecteaza nivelul dorit (1 - 15): " << '\n';
     int nivel;

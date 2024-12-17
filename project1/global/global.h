@@ -10,6 +10,9 @@
 extern const int dx[4];
 extern const int dy[4];
 
+extern utilizator utilizatori[101];
+extern int numar_utilizatori;
+
 extern const int VALOARE_GAURA;
 extern const int VALOARE_IEPURE;
 extern const int VALOARE_VULPE;

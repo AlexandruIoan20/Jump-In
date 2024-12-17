@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_STANDARD 11)
 
 # Adaugă toate fișierele sursă
-add_executable(project1
+#[[add_executable(project1
         main.cpp
         global/global.cpp
         afis/afis.cpp
@@ -15,7 +15,10 @@ add_executable(project1
         utils/utils.cpp
         miscari/miscari.cpp
         utilizatori/utilizatori.cpp
-)
+)]]
+
+add_executable(project1
+        m.cpp)
 
 #[[
 # Activează compabilitatea ANSI în MinGW pentru stdio

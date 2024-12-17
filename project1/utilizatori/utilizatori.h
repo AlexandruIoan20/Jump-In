@@ -3,7 +3,7 @@
 
 #include "../structures/structures.h"
 
-utilizator get_utilizatori();
+void get_utilizatori();
 void add_utilizator(char username[101]);
 
 #endif //UTLIZATORI_H

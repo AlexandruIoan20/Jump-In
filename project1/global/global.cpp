@@ -6,6 +6,9 @@ using namespace std;
 const int dx[4] = { -1, 0, 1, 0 };
 const int dy[4] = { 0, 1, 0, -1 };
 
+utilizator utilizatori[101];
+int numar_utilizatori = 0;
+
 const int VALOARE_GAURA = -1;
 const int VALOARE_IEPURE = 1;
 const int VALOARE_VULPE = 2;
