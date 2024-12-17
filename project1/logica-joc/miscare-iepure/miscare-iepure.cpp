@@ -40,8 +40,12 @@ void saritura_iepure(iepure &iep, int directie, int index) {
         inmat(xnou, ynou) && matrice_joc[xnou][ynou].val != 0
         ) {
         if (matrice_joc[xnou][ynou].val == VALOARE_GAURA && !matrice_joc[xnou][ynou].este_ocupat) break;
+        // pozitia veche xnou, ynou
+        //(stanga+lat*xnou,sus+lat*ynou,"spatiu.bmp");
         xnou = xnou + dx[directie];
         ynou = ynou + dy[directie];
+        // pozitia noua xnou, ynou
+        //readimagefile(stanga+lat*xnou,sus+lat*ynou,"iepure.bmp");
         }
 
     if (!inmat(xnou, ynou)) {

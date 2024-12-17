@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include "structures/structures.h"
 #include "global/global.h"
 #include "afis/afis.h"
